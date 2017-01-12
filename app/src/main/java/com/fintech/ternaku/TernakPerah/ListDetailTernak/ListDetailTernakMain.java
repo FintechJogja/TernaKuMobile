@@ -1,11 +1,13 @@
 package com.fintech.ternaku.TernakPerah.ListDetailTernak;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -27,9 +29,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.GridView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.fintech.ternaku.Connection;
+import com.fintech.ternaku.Setting.AppSingleton;
+import com.fintech.ternaku.Setting.EditTernakActivity;
 import com.fintech.ternaku.TernakPerah.DetailTernak.DetailTernakMain;
 import com.fintech.ternaku.TernakPerah.Main.MainActivity;
 import com.fintech.ternaku.R;
@@ -46,7 +55,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class ListDetailTernakMain extends AppCompatActivity {
     AdapterDetailTernakListDetailTernak adapter;
@@ -109,13 +122,22 @@ public class ListDetailTernakMain extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getApplicationContext(), "Click!!" + i, Toast.LENGTH_LONG).show();
-                String id_ternak = ternakList.get(i).getId_ternak();
+                String idternak = ternakList.get(i).getId_ternak();
                 Intent intent = new Intent(ListDetailTernakMain.this, DetailTernakMain.class);
-                intent.putExtra("idternak",id_ternak);
+                intent.putExtra("idternak",idternak);
                 startActivity(intent);
             }
         });
 
+
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("Click",ternakList.get(position).getId_ternak());
+                showOption(ternakList.get(position).getId_ternak(), position);
+                return true;
+            }
+        });
         isFilter = false;
         isUrut = false;
         isloading = false;
@@ -718,4 +740,96 @@ public class ListDetailTernakMain extends AppCompatActivity {
 
         list.setLayoutAnimation(controller);
     }
+
+    public void showOption(String id_ternak, final int post){
+        final String idt = id_ternak;
+        AlertDialog.Builder builderSingle = new AlertDialog.Builder(ListDetailTernakMain.this);
+        builderSingle.setTitle("Pilih Aksi");
+
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ListDetailTernakMain.this, android.R.layout.select_dialog_singlechoice);
+        arrayAdapter.add("Hapus Ternak");
+        arrayAdapter.add("Ubah Data Ternak");
+
+        builderSingle.setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builderSingle.setAdapter(arrayAdapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String strName = arrayAdapter.getItem(which);
+                Log.d("Selected",String.valueOf(which));
+                if(which == 0){
+                    deleteRequest(url.getUrl_DeleteTernak(),idt,post);
+                }else if(which == 1){
+                    Intent i = new Intent(ListDetailTernakMain.this, EditTernakActivity.class);
+                    i.putExtra("id_ternak",idt);
+                    startActivity(i);
+                }
+            }
+        });
+        builderSingle.show();
+    }
+
+    public void deleteRequest(String url, final String id_ter, final int pos) {
+        final SweetAlertDialog pDialog = new SweetAlertDialog(ListDetailTernakMain.this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#fa6900"));
+        pDialog.setTitleText("Merubah data..");
+        pDialog.setCancelable(false);
+        pDialog.show();
+        Log.d("URL", url);
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        Log.d("response",response);
+                        if (response.equals("1")) {
+                            pDialog.dismissWithAnimation();
+
+                            new SweetAlertDialog(ListDetailTernakMain.this, SweetAlertDialog.SUCCESS_TYPE)
+                                    .setTitleText("Sukses!")
+                                    .setContentText("Data Ternak Berhasil Dihapus")
+
+                                    .show();
+
+                            ternakList.remove(pos);
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            new SweetAlertDialog(ListDetailTernakMain.this, SweetAlertDialog.WARNING_TYPE)
+                                    .setTitleText("Gagal!")
+                                    .setContentText("Gagal Menghapus Data Ternak")
+                                    .show();
+                            pDialog.dismissWithAnimation();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        Log.d("Error.Response", error.getMessage());
+                        pDialog.dismissWithAnimation();
+
+                    }
+                }
+        ) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                    params.put("uid", getSharedPreferences(getString(R.string.userpref), Context.MODE_PRIVATE).getString("keyIdPengguna", null));
+                    params.put("idternak", id_ter);
+
+                Log.d("ParamEdit",params.toString());
+                return params;
+            }
+
+        };
+        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(postRequest, "SearchFLightActivity");
+    }
+
 }

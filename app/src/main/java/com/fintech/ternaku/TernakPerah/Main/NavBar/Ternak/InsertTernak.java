@@ -51,8 +51,8 @@ import java.util.Locale;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class InsertTernak extends AppCompatActivity {
-    private TextView txtNama,txtRFID;
-    private EditText txtBrt,txtTgl;
+    private TextView txtNama,txtRFID, txtTgl;
+    private EditText txtBrt;
     private Button btnTambah,btnPerbaharui;
     float counter=200;
     private int flag_error_nama=0,flag_error_berat=0;
@@ -122,11 +122,11 @@ public class InsertTernak extends AppCompatActivity {
 
         txtNama = (TextView)findViewById(R.id.nama_ternak);
         txtBrt = (EditText) findViewById(R.id.berat_ternak);
-        txtTgl = (EditText)findViewById(R.id.txtTgl);
+        txtTgl = (TextView) findViewById(R.id.txtTgl);
 
         dateFormatter = new SimpleDateFormat("dd MMMM yyyy", Locale.US);
 
-        //txtTgl.setText(dateFormatter.format(Calendar.getInstance().getTime()));
+        txtTgl.setText(dateFormatter.format(Calendar.getInstance().getTime()));
 
         txtNama.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,6 +155,14 @@ public class InsertTernak extends AppCompatActivity {
 
             }
         });
+
+        txtTgl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fromDatePickerDialog.show();
+            }
+        });
+
     }
 
 
@@ -175,12 +183,28 @@ public class InsertTernak extends AppCompatActivity {
                     public void onClick(SweetAlertDialog sDialog) {
                         sDialog.cancel();
 
-                        //Cek RFID---------------------------------
-                        Connection c = new Connection();
-                        String urlParameters2;
-                        urlParameters2 = "rfid=" + txtRFID.getText().toString() +
-                                "&idpeternakan=" + getSharedPreferences(getString(R.string.userpref), Context.MODE_PRIVATE).getString("keyIdPeternakan", null);
-                        new CheckRFID().execute(url.getUrlGet_RFIDCek(), urlParameters2);
+                        if(TextUtils.isEmpty(txtRFID.getText().toString())){
+                            final Calendar c = Calendar.getInstance();
+                            Log.d("TAG_INSERT",txtNama.getText().toString()+txtBrt.getText().toString()+
+                                    getSubStractYear (dateFormatter.format(Calendar.getInstance().getTime()), txtTgl.getText().toString())
+                                    +radioKelamin.getText().toString());
+                            String urlParameters = "uid=" + getSharedPreferences(getString(R.string.userpref), Context.MODE_PRIVATE).getString("keyIdPengguna", null).trim()
+                                    +"&namaternak=" + txtNama.getText().toString()
+                                    +"&jeniskelamin=" + radioKelamin.getText().toString()
+                                    +"&tanggallahirternak=" + txtTgl.getText().toString()
+
+                                    +"&beratbadan=" + txtBrt.getText().toString()
+                                    +"&rfidcode=" + txtRFID.getText().toString();
+                            new insertTernakTask().execute(url.getUrl_InsertTernak(), urlParameters);
+                        }
+                        else {
+                            //Cek RFID---------------------------------
+                            Connection c = new Connection();
+                            String urlParameters2;
+                            urlParameters2 = "rfid=" + txtRFID.getText().toString() +
+                                    "&idpeternakan=" + getSharedPreferences(getString(R.string.userpref), Context.MODE_PRIVATE).getString("keyIdPeternakan", null);
+                            new CheckRFID().execute(url.getUrlGet_RFIDCek(), urlParameters2);
+                        }
 
                     }
                 })
@@ -262,7 +286,8 @@ public class InsertTernak extends AppCompatActivity {
                 String urlParameters = "uid=" + getSharedPreferences(getString(R.string.userpref), Context.MODE_PRIVATE).getString("keyIdPengguna", null).trim()
                         +"&namaternak=" + txtNama.getText().toString()
                         +"&jeniskelamin=" + radioKelamin.getText().toString()
-                        +"&tanggallahirternak=" + getSubStractYear (dateFormatter.format(Calendar.getInstance().getTime()), txtTgl.getText().toString())
+                        +"&tanggallahirternak=" + txtTgl.getText().toString()
+
                         +"&beratbadan=" + txtBrt.getText().toString()
                         +"&rfidcode=" + txtRFID.getText().toString();
                 new insertTernakTask().execute(url.getUrl_InsertTernak(), urlParameters);
@@ -469,10 +494,11 @@ public class InsertTernak extends AppCompatActivity {
             value= false;
             txtNama.setError("Isikan Nama Ternak");
         }
+        /*
         if(TextUtils.isEmpty(txtRFID.getText().toString())){
             value= false;
             txtRFID.setError("Isikan No RFID");
-        }
+        }*/
         if(txtBrt.getText().toString().equalsIgnoreCase("Isikan berat ternak disini")){
             value= false;
             txtBrt.setError("Isikan Berat");
@@ -493,7 +519,7 @@ public class InsertTernak extends AppCompatActivity {
         //toDateEtxt.setOnClickListener(this);
 
         Calendar newCalendar = Calendar.getInstance();
-        fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+        fromDatePickerDialog = new DatePickerDialog(this, android.R.style.Theme_Holo_Dialog, new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();

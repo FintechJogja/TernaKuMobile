@@ -299,7 +299,13 @@
         <activity
             android:name=".TernakPotong.AddPakan.AddPakanPedaging"
             android:label="@string/title_activity_add_pakan_pedaging"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Setting.EditTernakActivity"
+            android:label="@string/title_activity_edit_ternak"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            />
     </application>
 
 </manifest>

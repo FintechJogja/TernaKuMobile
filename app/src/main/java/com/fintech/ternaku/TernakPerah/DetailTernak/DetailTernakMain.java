@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fintech.ternaku.Connection;
+import com.fintech.ternaku.Setting.EditTernakActivity;
 import com.fintech.ternaku.TernakPerah.DetailTernak.Event.AdapterDetailTernakEvent;
 import com.fintech.ternaku.TernakPerah.DetailTernak.Event.ModelDetailTernakEvent;
 import com.fintech.ternaku.TernakPerah.DetailTernak.Task.AdapterDetailTernakTask;
@@ -131,7 +132,7 @@ public class DetailTernakMain extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_calendar, menu);
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
         return true;
     }
 
@@ -145,6 +146,12 @@ public class DetailTernakMain extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_home) {
             Intent i = new Intent(DetailTernakMain.this, MainActivity.class);
+            startActivity(i);
+            return true;
+        }
+        else if (id == R.id.action_edit) {
+            Intent i = new Intent(DetailTernakMain.this, EditTernakActivity.class);
+            i.putExtra("id_ternak",id_ternak);
             startActivity(i);
             return true;
         }
@@ -253,6 +260,8 @@ public class DetailTernakMain extends AppCompatActivity {
                         .badgeTitle("*")
                         .build()
         );
+
+
         navigationTabBar.setModels(models);
         navigationTabBar.setViewPager(viewPager, 0);
         navigationTabBar.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
