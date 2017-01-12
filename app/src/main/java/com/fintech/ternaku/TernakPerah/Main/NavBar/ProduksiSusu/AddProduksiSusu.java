@@ -154,7 +154,7 @@ public class AddProduksiSusu extends AppCompatActivity {
                                         }else{
                                             new SweetAlertDialog(AddProduksiSusu.this, SweetAlertDialog.WARNING_TYPE)
                                                     .setTitleText("Peringatan!")
-                                                    .setContentText("RFID Sudah Terpakai atau Tidak Ada RFID Ditemukan")
+                                                    .setContentText("Tidak Ada RFID Ditemukan")
                                                     .show();
                                         }
                                     }

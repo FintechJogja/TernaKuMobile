@@ -261,7 +261,7 @@ public class InsertTernak extends AppCompatActivity {
                         +radioKelamin.getText().toString());
                 String urlParameters = "uid=" + getSharedPreferences(getString(R.string.userpref), Context.MODE_PRIVATE).getString("keyIdPengguna", null).trim()
                         +"&namaternak=" + txtNama.getText().toString()
-                        +"&jeniskelamin=" + radioKelamin.getText().toString()
+                        +"&jeniskelaminternak=" + radioKelamin.getText().toString()
                         +"&tanggallahirternak=" + getSubStractYear (dateFormatter.format(Calendar.getInstance().getTime()), txtTgl.getText().toString())
                         +"&beratbadan=" + txtBrt.getText().toString()
                         +"&rfidcode=" + txtRFID.getText().toString();

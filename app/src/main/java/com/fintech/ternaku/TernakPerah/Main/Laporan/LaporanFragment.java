@@ -27,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import me.wangyuwei.loadingview.LoadingView;
 
@@ -110,9 +111,12 @@ public class LaporanFragment extends Fragment {
         });
 
         //Get Bundle-------------------------------------------------------
-        bln = "November";
-        thn = "2016";
-        bln_angka = "11";
+        String[] mMonths = new String[]{
+                "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
+                "Agustus", "September", "Oktober", "November", "Desember"};
+        bln = mMonths[Calendar.getInstance().get(Calendar.MONTH)];
+        thn = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));;
+        bln_angka = String.valueOf(Calendar.getInstance().get(Calendar.MONTH));;;
         jenis_transaksi = "Pembelian Vaksin";
 
         //Get Data From Web Service------------------------------------------------

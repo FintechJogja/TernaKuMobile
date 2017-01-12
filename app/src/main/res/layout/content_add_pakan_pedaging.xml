@@ -23,12 +23,31 @@
             android:layout_margin="5dp"
             android:text="Pilih Konsentrat"
             android:textColor="@color/colorPrimary"/>
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pilih Konsentrat"
+            android:hint="Masukkan Konsentrat Disini"
+            android:layout_margin="7dp"
+            android:id="@+id/input_addpakanpedaging_activity_konsentrat"
+            android:textAppearance="@android:style/TextAppearance.Medium" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:elevation="5dp"
+        android:background="#ecf0f1">
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:id="@+id/input_addpakanpedaging_activity_konsentrat" />
+            android:hint="Masukkan Id Ternak atau RFID"
+            android:visibility="gone"
+            android:id="@+id/input_addpakanpedaging_activity_idternak"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,6 +66,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/input_addpakanpedaging_activity_idternak_scan"
             android:text="Scan RFID"
             android:textAppearance="@android:style/TextAppearance.Medium"
             android:textAlignment="center"
@@ -57,22 +77,18 @@
         android:layout_height="match_parent"
         android:id="@+id/linearlayout_addpakanpedaging_activity_main"
         android:orientation="vertical">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_selector_date_picker_laporan"
-            android:text="Simpan"
-            android:id="@+id/btn_simpan"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            android:id="@+id/input_addpakanpedaging_activity_pilihkonsentrat"/>
         <ListView
             android:id="@+id/list_addpakanpedaging_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="@null"
             android:dividerHeight="0dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@drawable/bg_selector_date_picker_laporan"
+            android:text="Simpan"
+            android:id="@+id/btn_simpan"/>
     </LinearLayout>
 </LinearLayout>
