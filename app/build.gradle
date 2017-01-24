@@ -62,6 +62,8 @@ dependencies {
     compile 'commons-io:commons-io:2.4'
     compile 'me.aflak.libraries:bluetooth:1.2.4'
     compile 'com.github.mancj:SlideUp-Android:1.0-beta'
+    compile 'com.android.volley:volley:1.0.0'
+
 
     testCompile 'junit:junit:4.12'
 }

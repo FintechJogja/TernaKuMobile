@@ -7,6 +7,8 @@
     android:fitsSystemWindows="true"
     tools:context=".TernakPerah.DetailTernak.DetailTernakMain">
 
+    <include layout="@layout/content_detail_ternak_main" />
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,11 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
             android:orientation="vertical">
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -95,7 +100,5 @@
         </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_detail_ternak_main" />
 
 </android.support.design.widget.CoordinatorLayout>

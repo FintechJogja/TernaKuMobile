@@ -146,7 +146,10 @@ public class UrlList {
     private String Url_GetAdg = Url_Utama + "C_Pedaging/getADGTernak";
     //AddPakanPedaing--------------------------------------------------
     private String Url_GetKomposisi = Url_Utama + "C_Pedaging/GetKomposisiPakanForMakanTernak";
+    private String Url_EditTernak = Url_Utama + "C_Ternak/editTernak";
+    private String Url_GetTernakByID = Url_Utama + "C_Ternak/getTernakByID";
 
+    private String Url_DeleteTernak = Url_Utama + "C_Ternak/deleteTernak";
 
     public UrlList(){
 
@@ -474,5 +477,29 @@ public class UrlList {
 
     public void setUrl_GetKawananBB(String url_GetKawananBB) {
         Url_GetKawananBB = url_GetKawananBB;
+    }
+
+    public String getUrl_EditTernak() {
+        return Url_EditTernak;
+    }
+
+    public void setUrl_EditTernak(String url_EditTernak) {
+        Url_EditTernak = url_EditTernak;
+    }
+
+    public String getUrl_GetTernakByID() {
+        return Url_GetTernakByID;
+    }
+
+    public void setUrl_GetTernakByID(String url_GetTernakByID) {
+        Url_GetTernakByID = url_GetTernakByID;
+    }
+
+    public String getUrl_DeleteTernak() {
+        return Url_DeleteTernak;
+    }
+
+    public void setUrl_DeleteTernak(String url_DeleteTernak) {
+        Url_DeleteTernak = url_DeleteTernak;
     }
 }

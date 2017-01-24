@@ -80,6 +80,7 @@
     <string name="title_activity_view_adg">ViewADG</string>
     <string name="title_activity_komposisi_pakan">KomposisiPakanActivity</string>
     <string name="title_activity_add_pakan_pedaging">AddPakanPedaging</string>
+    <string name="title_activity_edit_ternak">EditTernakActivity</string>
 
 
 </resources>
