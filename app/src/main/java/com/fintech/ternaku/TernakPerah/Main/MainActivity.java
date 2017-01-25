@@ -27,6 +27,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.fintech.ternaku.Market.MarketMainActivity;
 import com.fintech.ternaku.TernakPerah.ListDetailTernak.ListDetailTernakMain;
 import com.fintech.ternaku.TernakPerah.Main.NavBar.BatasProduksiSusu.AddBatasProduksi;
 import com.fintech.ternaku.TernakPerah.Main.NavBar.Peternak.AddPeternak;
@@ -123,98 +124,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         FirebaseMessaging.getInstance().subscribeToTopic(sharedpreferences.getString("keyIdPeternakan", null));
 
-        //SlideMenu Menu Utama Dan Monitor-----------------------------------
-        slideView_main_activity_menututama = findViewById(R.id.slideView_main_activity_menututama);
-        dim_main_activity_menututama = findViewById(R.id.dim_main_activity_menututama);
-
-        slide_main_activity_menututama = new SlideUp(slideView_main_activity_menututama);
-        slide_main_activity_menututama.hideImmediately();
-        slide_main_activity_menututama.setSlideListener(new SlideUp.SlideListener() {
-            @Override
-            public void onSlideDown(float v) {
-                dim_main_activity_menututama.setAlpha(1 - (v / 100));
-            }
-
-            @Override
-            public void onVisibilityChanged(int i) {
-                if (i == View.GONE)
-                {
-                    navigationTabBar.deselect();
-                }
-            }
-
-        });
-
-        //Initiate Content Menu Utama-----------------------------------------
-        linearlayout_main_activity_menuutama = (LinearLayout) findViewById(R.id.linearlayout_main_activity_menuutama);
-        btn_main_activity_slide_tambahpakan = (LinearLayout) findViewById(R.id.btn_main_activity_slide_tambahpakan);
-        btn_main_activity_slide_tambahpakan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent();
-                i = new Intent(MainActivity.this,AddPakanPedaging.class);
-                startActivity(i);
-            }
-        });
-        btn_main_activity_slide_tambahternak = (LinearLayout) findViewById(R.id.btn_main_activity_slide_tambahternak);
-        btn_main_activity_slide_tambahternak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent();
-                i = new Intent(MainActivity.this,InsertTernak.class);
-                startActivity(i);
-            }
-        });
-        btn_main_activity_slide_tambahproduksisusu = (LinearLayout) findViewById(R.id.btn_main_activity_slide_tambahproduksisusu);
-        btn_main_activity_slide_tambahproduksisusu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent();
-                i = new Intent(MainActivity.this,AddProduksiSusu.class);
-                startActivity(i);
-            }
-        });
-        btn_main_activity_slide_tambahbatasproduksi = (LinearLayout) findViewById(R.id.btn_main_activity_slide_tambahbatasproduksi);
-        btn_main_activity_slide_tambahbatasproduksi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent();
-                i = new Intent(MainActivity.this,AddBatasProduksi.class);
-                startActivity(i);
-            }
-        });
-        btn_main_activity_slide_tambahkomposisipakan = (LinearLayout) findViewById(R.id.btn_main_activity_slide_tambahkomposisipakan);
-        btn_main_activity_slide_tambahkomposisipakan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent();
-                i = new Intent(MainActivity.this,KomposisiPakanActivity.class);
-                startActivity(i);
-            }
-        });
-        btn_main_activity_slide_tambahkeuangan = (LinearLayout) findViewById(R.id.btn_main_activity_slide_tambahkeuangan);
-        btn_main_activity_slide_tambahkeuangan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent();
-                i = new Intent(MainActivity.this,AddKeuangan.class);
-                startActivity(i);
-            }
-        });
-
-        //Initiate Content Menu Monitoring-------------------------------------
-        linearlayout_main_activity_menumonitoring = (LinearLayout) findViewById(R.id.linearlayout_main_activity_menumonitoring);
-        btn_main_activity_slide_lihatadg = (LinearLayout) findViewById(R.id.btn_main_activity_slide_lihatadg);
-        btn_main_activity_slide_lihatadg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent();
-                i = new Intent(MainActivity.this,ViewADG.class);
-                startActivity(i);
-            }
-        });
-        btn_main_activity_slide_lihatoptimalisasi = (LinearLayout) findViewById(R.id.btn_main_activity_slide_lihatoptimalisasi);
-
         //ViewPager and TabLayout-----------------------------
         viewPager_main_activity = (ViewPager)findViewById(R.id.viewpager_main_activity);
         setupViewPager(viewPager_main_activity);
@@ -233,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 else if(tab.getPosition() == 1)
                 {
-                    getSupportActionBar().setTitle("Tambah Data");
+                    getSupportActionBar().setTitle("Pengelolaan");
                 }
                 else if(tab.getPosition() == 2)
                 {
@@ -301,16 +210,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_menu),
+                        getResources().getDrawable(R.drawable.ic_action_add),
                         Color.parseColor(colors[0]))
-                        .title("Menu Utama")
+                        .title("Tambah Ternak")
                         .build()
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
-                        getResources().getDrawable(R.drawable.ic_monitoring),
+                        getResources().getDrawable(R.drawable.ic_action_cart),
                         Color.parseColor(colors[0]))
-                        .title("Monitoring")
+                        .title("Market")
                         .build()
         );
         models.add(
@@ -332,14 +241,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         startActivity(i);
                         break;
                     case 1 :
-                        linearlayout_main_activity_menuutama.setVisibility(View.VISIBLE);
-                        linearlayout_main_activity_menumonitoring.setVisibility(View.GONE);
-                        slide_main_activity_menututama.animateIn();
+                        i = new Intent(MainActivity.this,InsertTernak.class);
+                        startActivity(i);
                         break;
                     case 2:
-                        linearlayout_main_activity_menuutama.setVisibility(View.GONE);
-                        linearlayout_main_activity_menumonitoring.setVisibility(View.VISIBLE);
-                        slide_main_activity_menututama.animateIn();
+                        i = new Intent(MainActivity.this,MarketMainActivity.class);
+                        startActivity(i);
                         break;
                     case 3:
                         i = new Intent(MainActivity.this,CalendarToDoActivity.class);
@@ -440,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new DashboardFragment(), "FARMBOARD");
-        adapter.addFrag(new AddDataFragment(), "TAMBAH DATA");
+        adapter.addFrag(new AddDataFragment(), "PENGELOLAAN");
         adapter.addFrag(new ShowReminderFragment(), "PENGINGAT");
         adapter.addFrag(new LaporanFragment(), "LAPORAN");
 

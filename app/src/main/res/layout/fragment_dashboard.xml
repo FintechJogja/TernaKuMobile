@@ -75,6 +75,7 @@
                     android:layout_height="wrap_content"
                     android:background="#1abc9c"
                     android:textColor="#fff"
+                    android:visibility="gone"
                     android:layout_marginTop="10dp"
                     android:elevation="5dp"
                     android:orientation="horizontal">

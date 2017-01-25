@@ -37,6 +37,7 @@ import android.widget.Toast;
 import com.fintech.ternaku.Connection;
 import com.fintech.ternaku.R;
 import com.fintech.ternaku.Setting.Bluetooth;
+import com.fintech.ternaku.TernakPotong.KompisisiPakan.KomposisiPakanActivity;
 import com.fintech.ternaku.TernakPotong.SapiPotongAddKomposisiPakan;
 import com.fintech.ternaku.UrlList;
 
@@ -292,7 +293,7 @@ public class AddPakanPedaging extends AppCompatActivity {
                             public void onClick(SweetAlertDialog sDialog) {
                                 sDialog.cancel();
                                 finish();
-                                startActivity(new Intent(AddPakanPedaging.this, SapiPotongAddKomposisiPakan.class));
+                                startActivity(new Intent(AddPakanPedaging.this, KomposisiPakanActivity.class));
                             }
                         })
                         .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -510,12 +511,23 @@ public class AddPakanPedaging extends AppCompatActivity {
             Log.d("CEK_INSERT",urlParameters);
             new InsertPakan().execute("http://developer.ternaku.com/C_HistoryMakan/InsertPemakaianPakan2", urlParameters);
 
-            //Hilangkan Data Dari List---------------------------------------
-            if(status_insert==1){
-                listdata_addpakanpedaging_activity_temp.remove(i-1);
-                Log.d("Data ke ", String.valueOf(i-1) + String.valueOf(listdata_addpakanpedaging_activity_temp.size()));
-                adapterAddPakanPedaging.notifyDataSetChanged();
-            }else {
+            //Cek Koneksi Data dan Hilangkan Dari List-----------------------------------------------------
+            if(status_insert==1&&count>0){
+                ClearListData(i);
+            }else if(status_insert==1&&count==0) {
+                ClearListData(i);
+                new SweetAlertDialog(AddPakanPedaging.this, SweetAlertDialog.SUCCESS_TYPE)
+                        .setTitleText("Berhasil!")
+                        .setContentText("Data Berhasil Dimasukkan")
+                        .setConfirmText("OK")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                finish();
+                            }
+                        })
+                        .show();
+            }else{
                 new SweetAlertDialog(AddPakanPedaging.this, SweetAlertDialog.ERROR_TYPE)
                         .setTitleText("Koneksi Terputus")
                         .setContentText("Data Gagal Dimasukkan, Silahkan Simpan Data Kembali")
@@ -528,22 +540,13 @@ public class AddPakanPedaging extends AppCompatActivity {
                         })
                         .show();
             }
-
-            //Cek Data Selesai Diinput-----------------------------------------------------
-            if(status_insert==1&&count==0) {
-                new SweetAlertDialog(AddPakanPedaging.this, SweetAlertDialog.SUCCESS_TYPE)
-                        .setTitleText("Berhasil!")
-                        .setContentText("Data Berhasil Dimasukkan")
-                        .setConfirmText("OK")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                finish();
-                            }
-                        })
-                        .show();
-            }
         }
+    }
+
+    private void ClearListData(int i){
+        listdata_addpakanpedaging_activity_temp.remove(i-1);
+        Log.d("Data ke ", String.valueOf(i-1) + String.valueOf(listdata_addpakanpedaging_activity_temp.size()));
+        adapterAddPakanPedaging.notifyDataSetChanged();
     }
 
     //Insert To Database--------------------------------------------------------
@@ -563,10 +566,10 @@ public class AddPakanPedaging extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Log.d("RES", result);
+            Log.d("RES_Insert", result);
             if(result.equalsIgnoreCase("1")){
                 status_insert=1;
-            }else{
+            }else if(result.equalsIgnoreCase("kosong")){
                 status_insert=0;
             }
 

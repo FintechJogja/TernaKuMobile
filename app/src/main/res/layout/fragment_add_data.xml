@@ -11,412 +11,1044 @@
         android:background="#80FFFFFF"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <Button
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/slider"
             android:layout_width="match_parent"
+            app:pager_animation="Accordion"
+            app:auto_cycle="true"
+            app:indicator_visibility="visible"
+            app:pager_animation_span="1100"
+            android:layout_height="150dp"/>
+        <com.daimajia.slider.library.Indicators.PagerIndicator
+            android:id="@+id/custom_indicator"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pindah Ternak"
-            android:drawableLeft="@drawable/ic_pindahternak"
-            android:id="@+id/button_adddata_fragment_pindahternak"
-            android:background="@color/color_primary_pindahternak"
-            android:textColor="#FFFFFF"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"/>
-        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-            android:id="@+id/expander_adddata_fragment_pindahternak"
+            android:gravity="center"
+            app:selected_color="#0095BF"
+            app:unselected_color="#55333333"
+            app:selected_drawable="@drawable/bird"
+            app:shape="oval"
+            app:selected_padding_left="5dp"
+            app:selected_padding_right="5dp"
+            app:unselected_padding_left="5dp"
+            app:unselected_padding_right="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            app:selected_width="6dp"
+            app:selected_height="6dp"
+            app:unselected_width="6dp"
+            app:unselected_height="6dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#e2e8e9"
-            app:ael_duration="400"
-            android:elevation="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="20dp"
-            app:ael_expanded="false"
-            app:ael_interpolator="linear"
-            app:ael_orientation="vertical"
-            android:layout_below="@+id/button_adddata_fragment_pindahternak"
-            android:layout_alignEnd="@+id/button_adddata_fragment_pindahternak"
-            android:layout_alignStart="@+id/button_adddata_fragment_pindahternak">
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical">
+            <com.gigamole.navigationtabbar.ntb.NavigationTabBar
+                android:id="@+id/navbar_pilih_fragment_pengelolaan"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Pindah Ternak"
-                    android:id="@+id/button_adddata_fragment_produksi_pindahternak"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_pindahternak"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tambah Kandang"
-                    android:id="@+id/button_adddata_fragment_produksi_tambahkandang"
-                    android:visibility="visible"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_pindahternak"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tambah Kawanan"
-                    android:id="@+id/button_adddata_fragment_produksi_tambahkawanan"
-                    android:visibility="visible"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_pindahternak"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-            </LinearLayout>
-        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kesuburan"
-            android:drawableLeft="@drawable/ic_hamil_dashboard"
-            android:id="@+id/button_adddata_fragment_kesuburan"
-            android:background="@color/color_primary_kesuburan"
-            android:textColor="#FFFFFF"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp" />
-        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-            android:id="@+id/expander_adddata_fragment_kesuburan"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#e2e8e9"
-            app:ael_duration="400"
-            android:elevation="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="20dp"
-            app:ael_expanded="false"
-            app:ael_interpolator="linear"
-            app:ael_orientation="vertical"
-            android:layout_below="@+id/button_adddata_fragment_kesuburan"
-            android:layout_alignEnd="@+id/button_adddata_fragment_kesuburan"
-            android:layout_alignStart="@+id/button_adddata_fragment_kesuburan">
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center"
+                app:ntb_animation_duration="400"
+                app:ntb_corners_radius="15dp"
+                app:ntb_scaled="false"
+                app:ntb_title_mode="all"
+                app:ntb_titled="true"
+                app:ntb_active_color="@color/colorPrimary"
+                app:ntb_inactive_color="#fff"
+                app:ntb_bg_color="@color/colorPrimary"/>
+
+            <!-- Layout Pengembangbiakan -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/container_pengembangbiakan_fragment_add"
                 android:orientation="vertical">
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mengandung"
-                    android:id="@+id/button_adddata_fragment_kesuburan_mengandung"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesuburan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Inseminasi"
-                    android:id="@+id/button_adddata_fragment_kesuburan_inseminasi"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesuburan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
 
-                <Button
+                <!-- Layout Kesuburan -->
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pemeriksaan reproduksi"
-                    android:id="@+id/button_adddata_fragment_kesuburan_pemeriksaanreproduksi"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesuburan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_marginLeft="10dp"
+                    android:text="Kesuburan"
+                    android:textStyle="normal|bold"
+                    android:fontFamily="casual"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#000000"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="100dp"/>
 
-                <Button
+                <!-- Line 1 -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Masa Subur"
-                    android:id="@+id/button_adddata_fragment_kesuburan_masasubur"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesuburan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_mengandung_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_mengandung_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Tambah Mengandung"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_inseminasi_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_inseminasi_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Inseminasi Ternak"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
 
-                <Button
+                <!-- Line 2 -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Injeksi Hormon"
-                    android:id="@+id/button_adddata_fragment_kesuburan_injeksihormon"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesuburan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
+                    android:id="@+id/btn_periksareproduksi_pengembangbiakan"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_periksareproduksi_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Pemeriksaan Reproduksi"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_masasubur_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_masasubur_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Ternak Sedang Masa Subur"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
 
-                <Button
+                <!-- Line 3 -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Kelahiran Keguguran"
-                    android:id="@+id/button_adddata_fragment_kesuburan_kelahirankeguguran"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesuburan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
+                    android:id="@+id/btn_injeksihormon_pengembangbiakan"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_injeksihormon_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Injeksi Hormon"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_melahirkan_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_melahirkan_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Ternak Melahirkan"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
 
-                <Button
+                <!-- Line 4 -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tidak Menyusui"
-                    android:id="@+id/button_adddata_fragment_kesuburan_tidakmenyusui"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesuburan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
+                    android:id="@+id/btn_menyusui_pengembangbiakan"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_menyusui_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Ternak Menyusui"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Layout Kesehatan -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Kesehatan"
+                    android:textStyle="normal|bold"
+                    android:fontFamily="casual"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#000000"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="100dp"/>
+
+                <!-- Line 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_cekkesehatan_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_cekkesehatan_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Cek Kesehatan"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_vaksinasi_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_vaksinasi_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Vaksinasi"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Line 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_cekpenyakit_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_cekpenyakit_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Cek Penyakit"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_karantina_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_karantina_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Karantina Ternak"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Line 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_protokol_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_addprotokol_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Tambah Protokol"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Jual Beli -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Keuangan"
+                    android:textStyle="normal|bold"
+                    android:fontFamily="casual"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#000000"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="100dp"/>
+
+                <!-- Line 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_jual_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_jual_keuangan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Jual Ternak"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_beli_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_beli_keuangan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Beli Ternak"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Line 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_tambahkeuangan_pengembangbiakan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_tambahkeuangan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Pengeluaran dan Pemasukan"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
-        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kesehatan"
-            android:drawableLeft="@drawable/ic_kesehatan_adddata"
-            android:id="@+id/button_adddata_fragment_kesehatan"
-            android:background="@color/color_primary_kesehatan"
-            android:textColor="#FFFFFF"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp" />
-        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-            android:id="@+id/expander_adddata_fragment_kesehatan"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#e2e8e9"
-            app:ael_duration="400"
-            android:elevation="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="20dp"
-            app:ael_expanded="false"
-            app:ael_interpolator="linear"
-            app:ael_orientation="vertical"
-            android:layout_below="@+id/button_adddata_fragment_kesehatan"
-            android:layout_alignEnd="@+id/button_adddata_fragment_kesehatan"
-            android:layout_alignStart="@+id/button_adddata_fragment_kesehatan">
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+
+            <!-- Layout Penggemukan -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/container_penggemukan_fragment_add"
                 android:orientation="vertical">
-                <Button
+
+                <!-- Layout Pakan -->
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cek Kesehatan"
-                    android:id="@+id/button_adddata_fragment_kesehatan_cekkesehatan"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesehatan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
+                    android:layout_marginLeft="10dp"
+                    android:text="Penggemukan"
+                    android:textStyle="normal|bold"
+                    android:fontFamily="casual"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#000000"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="100dp"/>
+
+                <!-- Line 1 -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Vaksinasi"
-                    android:id="@+id/button_adddata_fragment_kesehatan_vaksinasi"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesehatan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_pakan_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_pakan_penggemukan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Tambah Pakan"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_adg_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_adg_penggemukan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Lihat ADG"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Line 2 -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cek Mastitis,Lameness,Kuku"
-                    android:id="@+id/button_adddata_fragment_kesehatan_cekpenyakit"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesehatan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_komposisipakan_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_komposisipakan_penggemukan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Komposisi Pakan"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Layout Kesehatan -->
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Karantina"
-                    android:id="@+id/button_adddata_fragment_kesehatan_karantina"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesehatan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
+                    android:layout_marginLeft="10dp"
+                    android:text="Kesehatan"
+                    android:textStyle="normal|bold"
+                    android:fontFamily="casual"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#000000"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="100dp"/>
+
+                <!-- Line 1 -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tambah Protokol"
-                    android:id="@+id/button_adddata_fragment_kesehatan_tambahprotokol"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_kesehatan"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_cekkesehatan_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_cekkesehatan_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Cek Kesehatan"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_vaksinasi_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_vaksinasi_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Vaksinasi"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Line 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_cekpenyakit_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_cekpenyakit_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Cek Penyakit"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_karantina_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_karantina_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Karantina Ternak"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Line 3 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_protokol_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_addprotokol_pengembangbiakan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Tambah Protokol"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Jual Beli -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Keuangan"
+                    android:textStyle="normal|bold"
+                    android:fontFamily="casual"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#000000"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="100dp"/>
+
+                <!-- Line 1 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_jual_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_jual_keuangan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Jual Ternak"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_beli_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_beli_keuangan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Beli Ternak"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Line 2 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_tambahkeuangan_penggemukan"
+                        android:orientation="horizontal"
+                        android:elevation="10dp"
+                        android:background="#f9f9f9"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:weightSum="3">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_tambahkeuangan"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:text="Pengeluaran dan Pemasukan"
+                            android:layout_gravity="center_vertical"/>
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
-        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Produksi"
-            android:drawableLeft="@drawable/ic_produksi_adddata"
-            android:id="@+id/button_adddata_fragment_produksi"
-            android:background="@color/color_primary_produksi"
-            android:textColor="#FFFFFF"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp" />
-        <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-            android:id="@+id/expander_adddata_fragment_produksi"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#e2e8e9"
-            app:ael_duration="400"
-            android:elevation="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="20dp"
-            app:ael_expanded="false"
-            app:ael_interpolator="linear"
-            app:ael_orientation="vertical"
-            android:layout_below="@+id/button_adddata_fragment_produksi"
-            android:layout_alignEnd="@+id/button_adddata_fragment_produksi"
-            android:layout_alignStart="@+id/button_adddata_fragment_produksi">
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Masa Kering"
-                    android:id="@+id/button_adddata_fragment_produksi_masakering"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_produksi"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Berat Badan"
-                    android:id="@+id/button_adddata_fragment_produksi_beratbadan"
-                    android:visibility="gone"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_produksi"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Perubahan General"
-                    android:id="@+id/button_adddata_fragment_produksi_perubahangeneral"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_produksi"
-                    android:visibility="gone"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Culling"
-                    android:id="@+id/button_adddata_fragment_produksi_culling"
-                    android:background="#f0f3f4"
-                    android:elevation="50dp"
-                    android:textColor="@color/color_primary_produksi"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true" />
-            </LinearLayout>
-        </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
-
-
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
